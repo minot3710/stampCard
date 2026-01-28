@@ -92,8 +92,19 @@ function stamp(stampId) {
     stamped.push(stampId);
     saveStamped(stamped);
   }
+
+  // ★ アニメーションを付ける部分
+  const el = document.getElementById(stampId);
+  el.classList.add("pop");
+
+  // アニメーションが終わったら pop を外す
+  setTimeout(() => {
+    el.classList.remove("pop");
+  }, 300);
+
   updateStampUI();
 }
+
 
 // UI更新：押されたスタンプをはっきり表示
 function updateStampUI() {
